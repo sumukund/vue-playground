@@ -1,6 +1,9 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
+import EditableSpan from './components/EditableSpan.vue'
+const name = ref('Daneil')
 </script>
 
 <template>
@@ -10,11 +13,11 @@ import TheWelcome from './components/TheWelcome.vue'
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
     </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+  </header>
+  <main><EditableSpan :value="name" @input="(val) => (name = val)" /></main>
+
+
 </template>
 
 <style scoped>
