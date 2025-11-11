@@ -3,7 +3,13 @@ import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import { ref } from 'vue'
 import EditableSpan from './components/EditableSpan.vue'
+import CounterButton from './components/CounterButton.vue'
+import FlippableCard from './components/FlippableCard.vue'
 const name = ref('Daneil')
+
+const isFlipped = ref(true)
+
+    
 </script>
 
 <template>
@@ -16,7 +22,11 @@ const name = ref('Daneil')
 
   </header>
   <main><EditableSpan :value="name" @input="(val) => (name = val)" /></main>
+<CounterButton />
 
+<div class="card-container">
+    <FlippableCard v-for="n in 4" :key="n" :isFlipped="isFlipped" @flip="isFlipped = true" @unflip="isFlipped = false"></FlippableCard>
+  </div>
 
 </template>
 
@@ -46,5 +56,11 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: center;
 }
 </style>
