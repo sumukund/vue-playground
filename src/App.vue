@@ -9,25 +9,20 @@ const name = ref('Daneil')
 
 const isFlipped = ref(true)
 
-    
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/testing">Flippy card</RouterLink>
+    <RouterLink to="/test/:id">Done</RouterLink>
 
-  </header>
-  <main><EditableSpan :value="name" @input="(val) => (name = val)" /></main>
-<CounterButton />
-
-<div class="card-container">
-    <FlippableCard v-for="n in 4" :key="n" :isFlipped="isFlipped" @flip="isFlipped = true" @unflip="isFlipped = false"></FlippableCard>
-  </div>
-
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>

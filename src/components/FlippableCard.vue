@@ -3,14 +3,12 @@ import { ref } from 'vue'
 
 const isFlipped = ref(false);
 const props = defineProps({ isFlipped: Boolean})
-const emit = defineEmits(['flip', 'unflip'])
+// const emit = defineEmits(['flip', 'unflip'])
 </script>
 
 <template>
-
-
-<div class="card" :class="{ flipped: isFlipped }" @click="$emit('flip')=$emit('unflip')">
-</div>
+<!-- <div class="card" :class="{ flipped: isFlipped }" @click="$emit('flip')=$emit('unflip')">
+</div> -->
 </template>
 
 <style scoped>
@@ -36,4 +34,3 @@ background: rgb(48, 120, 227);
   top: 50%;
 } 
 </style>
-
